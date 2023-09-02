@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC_Student.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sid)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { Sid=item.Sid }) |
+                    @Html.ActionLink("Details", "Details", new {Sid=item.Sid  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Sid  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
